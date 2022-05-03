@@ -2,8 +2,10 @@ FROM node:16-alpine
 
 WORKDIR /app 
 
-COPY . .
+COPY package* ./
 
 RUN npm install
+
+COPY . .
 
 CMD ["npm", "start"]
