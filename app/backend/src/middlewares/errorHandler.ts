@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+/* import { Request, Response, NextFunction } from 'express';
 
 // https://stackoverflow.com/questions/50218878/typescript-express-error-function
 
@@ -33,3 +33,4 @@ export default function errorHandler(
 
   return res.status(500).json(error.message);
 }
+*/
