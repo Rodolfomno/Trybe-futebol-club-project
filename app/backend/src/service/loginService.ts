@@ -1,16 +1,18 @@
-/* import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
-import { readFile } from 'fs';
-import IUser from 'src/interfaces/IUser';
+import { readFile } from 'fs/promises';
+import IUser from '../interfaces/IUser';
 import User from '../database/models/UserModel';
 
 export default class LoginService {
   public static async create(email: string, password: string) {
     const validUser = await User.findOne({ where: { email } });
 
-    const validPassowrd = bcrypt.compare(password, validUser.password);
+    if (!validUser) return false;
 
-    if (!validUser || validPassowrd) return false;
+    const validPassword = bcrypt.compare(password, validUser.password);
+
+    if (!validPassword) return false;
 
     const secret = await readFile('jwt.evaluation.key', 'utf-8');
 
@@ -28,4 +30,3 @@ export default class LoginService {
     return { user, token };
   }
 }
-*/
