@@ -1,4 +1,3 @@
-/* import loginRouter from './login';
+import loginRouter from './login';
 
 export default { loginRouter };
-*/

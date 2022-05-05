@@ -6,7 +6,7 @@ class User extends Model {
   // public <campo>!: <tipo>;
   public id: number;
 
-  public userName: string;
+  public username: string;
 
   public role: string;
 
@@ -21,10 +21,6 @@ User.init({
     primaryKey: true,
     autoIncrement: true,
     type: DataTypes.INTEGER,
-  },
-  team_name: {
-    allowNull: false,
-    type: DataTypes.STRING,
   },
   username: {
     type: DataTypes.STRING,

@@ -8,6 +8,10 @@ export default class LoginService {
   public static async create(email: string, password: string) {
     const validUser = await User.findOne({ where: { email } });
 
+    const users = await User.findAll();
+
+    console.log(users, '-------------USERRR--------------------');
+
     if (!validUser) return false;
 
     const validPassword = bcrypt.compare(password, validUser.password);
@@ -22,7 +26,7 @@ export default class LoginService {
 
     const user: IUser = {
       id: validUser.id,
-      username: validUser.userName,
+      username: validUser.username,
       role: validUser.role,
       email: validUser.email,
     };

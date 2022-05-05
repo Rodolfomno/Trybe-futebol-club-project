@@ -1,5 +1,6 @@
 import * as express from 'express';
-// import loginRouter from './routes/login';
+import loginRouter from './routes/login';
+import { errorHandler } from './middlewares';
 
 class App {
   public app: express.Express;
@@ -9,7 +10,8 @@ class App {
     this.app = express();
     // ...
     this.config();
-    // this.routes();
+    this.routes();
+    this.errorHandler();
   }
 
   private config():void {
@@ -25,9 +27,13 @@ class App {
     this.app.use(express.json());
   }
 
-  // private routes(): void {
-  //   this.app.use('/login', loginRouter);
-  // }
+  private routes(): void {
+    this.app.use('/login', loginRouter);
+  }
+
+  private errorHandler(): void {
+    this.app.use(errorHandler);
+  }
 
   // ...
   public start(PORT: string | number):void {
