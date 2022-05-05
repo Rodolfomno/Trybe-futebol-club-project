@@ -14,7 +14,7 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
 
     req.body.tokenData = decoded;
     next();
-  } catch (error: any | unknown) {
+  } catch (error: unknown) {
     return res.status(500).json('The token provided is invalid');
   }
 };

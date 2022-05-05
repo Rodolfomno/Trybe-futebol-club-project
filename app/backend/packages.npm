@@ -1,3 +1,3 @@
 joi
-bcrypt
+bcryptjs
 @types/bcryptjs
