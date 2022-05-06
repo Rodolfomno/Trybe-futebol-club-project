@@ -26,4 +26,16 @@ export default class TeamController {
 
     return res.status(200).json(teamsByProgress);
   };
+
+  public createMatch = async (req: Request, res: Response, _next: NextFunction) => {
+    const { body } = req;
+
+    if (body.homeTeam === body.awayTeam) return res.status(401).json('não rolou');
+
+    const newMatch = await MatchService.createMatch(body);
+
+    if (!newMatch) return res.status(401).json('nao é possilvio');
+
+    return res.status(200).json(newMatch);
+  };
 }

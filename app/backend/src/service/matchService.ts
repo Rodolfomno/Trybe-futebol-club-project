@@ -1,5 +1,6 @@
 import MatchModel from '../database/models/MatchModel';
 import TeamModel from '../database/models/TeamModel';
+import IMatch from '../interfaces/IMatch';
 
 export default class MatchService {
   public static async getAll() {
@@ -23,5 +24,22 @@ export default class MatchService {
     });
 
     return AllByProgress;
+  }
+
+  public static async createMatch(newMatch: IMatch) {
+    const teamHomeId = await TeamModel.findOne({ where: { id: newMatch.homeTeam } });
+    const teamAwayId = await TeamModel.findOne({ where: { id: newMatch.awayTeam } });
+
+    if (!teamAwayId || !teamHomeId) return false;
+
+    const match = await MatchModel.create({
+      homeTeam: newMatch.homeTeam,
+      awayTeam: newMatch.awayTeam,
+      homeTeamGoals: newMatch.homeTeamGoals,
+      awayTeamGoals: newMatch.awayTeamGoals,
+      inProgress: true,
+    });
+
+    return match;
   }
 }
