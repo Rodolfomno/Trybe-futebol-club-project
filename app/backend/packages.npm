@@ -1,3 +1,4 @@
 joi
 bcryptjs
 @types/bcryptjs
+@types/chai-as-promised
