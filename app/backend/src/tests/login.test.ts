@@ -1,6 +1,6 @@
 import * as sinon from 'sinon';
 import * as chai from 'chai';
-import chaiHttp from 'chai-http';
+import chaiHttp = require('chai-http');
 import User from '../database/models/UserModel';
 //  import * as chaiAsPromise from 'chai-as-promised';
 

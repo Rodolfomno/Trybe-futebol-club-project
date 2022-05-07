@@ -36,9 +36,9 @@ export default class TeamController {
     }
     const newMatch = await MatchService.createMatch(body);
 
-    if (!newMatch) return res.status(401).json({ message: 'There is no team with such id!' });
+    if (!newMatch) return res.status(404).json({ message: 'There is no team with such id!' });
 
-    return res.status(200).json(newMatch);
+    return res.status(201).json(newMatch);
   };
 
   public finishMatch = async (req: Request, res: Response, _next: NextFunction) => {
