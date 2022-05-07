@@ -40,4 +40,13 @@ export default class TeamController {
 
     return res.status(200).json(newMatch);
   };
+
+  public finishMatch = async (req: Request, res: Response, _next: NextFunction) => {
+    const { id } = req.params;
+    const numberId = Number(id);
+
+    await MatchService.finishMatch(numberId);
+
+    res.status(200).json({ message: '.end?' });
+  };
 }
