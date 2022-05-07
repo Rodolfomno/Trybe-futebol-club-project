@@ -30,11 +30,13 @@ export default class TeamController {
   public createMatch = async (req: Request, res: Response, _next: NextFunction) => {
     const { body } = req;
 
-    if (body.homeTeam === body.awayTeam) return res.status(401).json('não rolou');
-
+    if (body.homeTeam === body.awayTeam) {
+      const message = { message: 'It is not possible to create a match with two equal teams' };
+      return res.status(401).json(message);
+    }
     const newMatch = await MatchService.createMatch(body);
 
-    if (!newMatch) return res.status(401).json('nao é possilvio');
+    if (!newMatch) return res.status(401).json({ message: 'There is no team with such id!' });
 
     return res.status(200).json(newMatch);
   };
