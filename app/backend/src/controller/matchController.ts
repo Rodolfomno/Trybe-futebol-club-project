@@ -49,4 +49,14 @@ export default class TeamController {
 
     res.status(200).json({ message: '.end?' });
   };
+
+  public updateMatch = async (req: Request, res: Response, _next: NextFunction) => {
+    const { id } = req.params;
+    const { body } = req;
+    const numberId = Number(id);
+
+    await MatchService.updateMatch(numberId, body.homeTeamGoals, body.awayTeamGoals);
+
+    res.status(200).json({ message: 'match updated' });
+  };
 }
