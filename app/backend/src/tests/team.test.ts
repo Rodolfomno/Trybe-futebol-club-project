@@ -20,6 +20,15 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('Teams route', () => {
+    describe('Teams endpoint', () => {
+      it('verify http 200 code', async () => {
+        const chaiHttpResponse = await chai.request(app).get('/teams').then((res) => {
+          return res;
+        })
+        expect(chaiHttpResponse).to.have.status(200);
+       })
+    });
+    
     describe('TeamsService', ()=>{
       const teamsMock = [{
         "id": 1,
