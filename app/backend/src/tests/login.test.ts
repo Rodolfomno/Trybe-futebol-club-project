@@ -2,7 +2,9 @@ import * as sinon from 'sinon';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 import User from '../database/models/UserModel';
+import UserModel from '../database/models/UserModel'
 //  import * as chaiAsPromise from 'chai-as-promised';
+
 
 // chai.use(chaiAsPromise);
 
