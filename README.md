@@ -13,3 +13,14 @@ Nesse projeto: **um back-end dockerizado utilizando modelagem de dados através 
  - Faz um `CRUD` utilizando `ORM`;
  - Utiliza Typescript com POO;
  - Realiza testes de integração
+
+
+# Como utilizar
+
+1 -  No seu terminal utilize o comando npm install na raiz do projeto e na pasta /app/backend um segundo npm install.
+
+2 - Na pasta raiz, utilize o comando npm run compose:up
+
+3 - acessar no seu browser a rota http://localhost:3000/
+
+4 - Que vença o torneio o melhor time!
