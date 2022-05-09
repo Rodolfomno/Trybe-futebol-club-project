@@ -29,7 +29,7 @@ describe('Teams route', () => {
        })
     });
     
-    describe('TeamsService', ()=>{
+    describe('get all teams service', ()=>{
       const teamsMock = [{
         "id": 1,
         "teamName": "santos"
@@ -61,7 +61,7 @@ describe('Teams route', () => {
             (TeamModel.findOne as sinon.SinonStub).restore();
       })
     
-      it('test find by id', async () => {
+      it('get team by id test', async () => {
         const teamId = await TeamService.getById(1);
     
         expect(teamId).to.deep.equal({"id": 1, "teamName": "santos"});

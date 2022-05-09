@@ -19,18 +19,6 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('Test login', () => {
-  describe('test db connection', () => {
-    beforeEach(sinon.restore);
-    it('test fail connection', () => {
-      sinon.stub(User, "findOne").rejects();
-      expect(LoginService.create({} as any, {} as any)).to.be.eventually.rejected;
-    })
-    it('test db ok', () => {
-     sinon.stub(User, "findOne").resolves();
-     expect(LoginService.create({} as any, {} as any)).to.be.eventually.equal(undefined);
-   });
-  })
-
   describe('test login fail', () => {
     it('incorrect email test', async () => {
       const chaiHttpResponse = await chai.request(app).post('/login')
@@ -46,25 +34,44 @@ describe('Test login', () => {
     });
   })
 
-  // describe('test sucessfull login', () => {
-  //   let mockResponse = {
-  //     user: {
-  //       id: 1,
-  //       username: "Admin",
-  //       role: "admin",
-  //       email: "admin@admin.com",
-  //     },
-  //     token: "",
-  //   };
-  //   it('sucess login', async () => {
-  //     const chaiHttpResponse = await chai.request(app).post("/login")
-  //     .send({ email: 'admin@admin.com', password: 'secret_admin'}).then((res) => {
-  //       expect(res).to.have.status(200);
-  //       mockResponse.token = res.body.token;
-  //       return res.body;
-  //     })
-  //     expect(chaiHttpResponse).to.be.deep.equals(mockResponse);
-  //   })
-  // })
+  describe('test sucessfull login', () => {
+    const mockAdmin = {
+      id: 1,
+      username: "Admin",
+      role: "admin",
+      email: "admin@admin.com",
+    };
+
+    let mockResponse = {
+      user: {
+        id: 1,
+        username: "Admin",
+        role: "admin",
+        email: "admin@admin.com",
+      },
+      token: "",
+    };
+
+    before(async () => {
+      sinon.stub(UserModel, "findOne").resolves({ ...mockAdmin } as UserModel);
+    });
+
+    after(() => {
+      (UserModel.findOne as sinon.SinonStub).restore();
+    });
+  
+    it('sucessfull login test', async () => {
+      const chaiHttpResponse = await chai.request(app).post('/login').send({
+        email: 'admin@admin.com',
+        password: 'secret_admin',
+      }).then((res) => {
+        expect(res).to.have.status(200);
+        mockResponse.token = res.body.token;
+        return res.body;
+      })
+
+      expect(chaiHttpResponse).to.be.deep.equals(mockResponse);
+    })
+  })
 })
 

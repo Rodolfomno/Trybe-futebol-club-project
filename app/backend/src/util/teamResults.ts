@@ -1,22 +1,7 @@
-interface IMatch {
-  goalsOwn: number;
-  goalsFavor: number;
-}
-
-interface IInputs {
-  teamName: string;
-  matches: IMatch[];
-}
-
-interface IGoals {
-  matches: IMatch[];
-  type: 'favor' | 'own';
-}
-
-interface IResult {
-  matches: IMatch[];
-  type: 'victories' | 'draws' | 'losses';
-}
+import IMatch from '../interfaces/IMatch2';
+import IInputs from '../interfaces/IInputs';
+import IGoals from '../interfaces/IGoals';
+import IResult from '../interfaces/IResult';
 
 export default class TeamResult {
   public name: string;
@@ -89,5 +74,14 @@ export default class TeamResult {
       return totalGoals;
     }, initialValue);
     return goals;
+  }
+
+  public static orderedBoard(result: TeamResult[]) {
+    const GoalsFavor = result.sort((a, b) => b.goalsFavor - a.goalsFavor);
+    const Balance = GoalsFavor.sort((a, b) => b.goalsBalance - a.goalsBalance);
+    const Victory = Balance.sort((a, b) => b.totalVictories - a.totalVictories);
+    const ordered = Victory.sort((a, b) => b.totalPoints - a.totalPoints);
+
+    return ordered;
   }
 }

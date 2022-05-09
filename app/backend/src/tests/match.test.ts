@@ -10,7 +10,7 @@ import { idText } from 'typescript';
 const { expect } = chai;
 
 describe('Test match endpoint', () => {
-    describe('test successfull endpoint tests', () => {
+    describe('successfull endpoint tests', () => {
         it('verify http 200 code', async () => {
           const chaiHttpResponse = await chai.request(app).get('/matches').then((res) => {
               return res;
