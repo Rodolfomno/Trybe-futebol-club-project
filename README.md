@@ -24,4 +24,12 @@ Nesse projeto: **um back-end dockerizado utilizando modelagem de dados através 
 
 3 - acessar no seu browser a rota http://localhost:3000/
 
+4 - para fazer o login;
+    como user
+      - email: user@user.com
+      - senha: secret_user
+    como admin
+      - email: admin@admin.com
+      - senha: secret_admin
+
 4 - Que vença o torneio o melhor time!
