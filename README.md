@@ -21,8 +21,13 @@ Nesse projeto: **um back-end dockerizado utilizando modelagem de dados através 
     npm install na pasta /app/backend e npm install na pasta /app/frontend (node version 16)
 
 2 - Na pasta raiz, utilize o comando npm run compose:up
+   2.1 - o compose precisa estar na versão 1.29.2;
+   2.2 - caso não esteja, digite no seu terminal linux;
+   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   e depois
+   sudo chmod +x /usr/local/bin/docker-compose
 
-3 - acessar no seu browser a rota http://localhost:3000/
+3 - agora basta acessar no seu browser a rota http://localhost:3000/
 
 4 - para fazer o login;
     como user
