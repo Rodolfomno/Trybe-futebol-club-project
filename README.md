@@ -17,8 +17,11 @@ Nesse projeto: **um back-end dockerizado utilizando modelagem de dados através 
 
 # Como utilizar
 
-1 -  No seu terminal utilize o comando npm install na raiz do projeto;
-    npm install na pasta /app/backend e npm install na pasta /app/frontend (node version 16)
+1 -  No seu terminal utilize o comando npm install na raiz do projeto(node version 16);
+
+1.2 - npm install na pasta /app/backend 
+
+1.3 - npm install na pasta /app/frontend
 
 2 - Na pasta raiz, utilize o comando npm run compose:up
 
