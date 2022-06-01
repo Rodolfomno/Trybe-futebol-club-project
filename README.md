@@ -27,6 +27,7 @@ Nesse projeto: **um back-end dockerizado utilizando modelagem de dados através 
 2.2 - caso não esteja, copie e cole esses dois comandos no terminal linux;
 
 2.3 - sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
 2.4 - sudo chmod +x /usr/local/bin/docker-compose
 
 3 - agora basta acessar no seu browser a rota http://localhost:3000/
