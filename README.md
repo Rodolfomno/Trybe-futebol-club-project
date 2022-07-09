@@ -34,7 +34,6 @@ No seu terminal digite:
 ```
 git@github.com:Rodolfomno/Trybe-futebol-club-project.git
 
-
 ```
 ## Inicializando a aplicação
 
@@ -70,9 +69,18 @@ A aplicação contem os seguintes endpoints:
 
 | Method | Description |
 |---|---|
-| `GET - localhost:3001/tasks` | Retorna todas as tarefas. |
-| `GET - localhost:3001/tasks/:id` | retorna task através do id params. |
-| `GET - localhost:3001/tasks/search` | Retorna tarefa por titulo atraves de uma query. |
-| `POST - localhost:3001/tasks` | Cria uma nova tarefa. |
-| `PUT - localhost:3001/tasks` | Atualiza uma tarefa existente |
-| `DELETE - localhost:3001/tasks/:id` | Deleta uam tarefa. |
+| `POST - localhost:3001/login` | Cria novo login |
+| `GET - localhost:3001/login/validate` | retorna token valido. |
+| `GET - localhost:3001/teams/` | Retorna todos os times. |
+| `POST - localhost:3001/teams/:id` | Retorna time por id. |
+| `GET - localhost:3001/leaderboard` | Retorna todos os resultados. |
+| `GET - localhost:3001/leaderboard/home` | Retorna resultados dos times da casa. |
+| `GET - localhost:3001/leaderboard/away` | Retorna resultados dos times de fora. |
+| `GET - localhost:3001/matches` | Retorna todas as partidas. |
+| `POST - localhost:3001/matches` | Cria uma nova partida. |
+| `PATCH - localhost:3001/matches/:id/finish` | Finaliza uma partida. |
+| `PATCH - localhost:3001/matches/:id/` | Atualiza uma partida. |
+
+
+
+
